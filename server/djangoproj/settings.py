@@ -22,14 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =\
+SECRET_KEY = \
     'django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost","https://rihardsbrehm-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai"]
-CSRF_TRUSTED_ORIGINS = ["https://rihardsbrehm-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai"]
+# We need to explicitly allow requests from the domain where the app is hosted
+ALLOWED_HOSTS = ["localhost", "rihardsbrehm-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"]
+
+# Tell Django to trust the origin for CSRF purposes
+CSRF_TRUSTED_ORIGINS = ["https://rihardsbrehm-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
